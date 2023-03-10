@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Intro au BDD</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/moon.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Découverte du BDD</h2>
+          <h3>Behavior Driven Development</h3>
+        </section>
+        <section>
+          <h2>Inventé par qui ?</h2>
+          <p>Par Dan North en 2003 !</p>
+        </section>
+        <section>
+          <h2>Qu'est-ce que c'est ?</h2>
+          <p>
+            C'est une approche de développement qui consiste à exprimer les
+            problématiques métiers aux travers d'exemples
+          </p>
+        </section>
+        <section>
+          <h2>Pourquoi ?</h2>
+          <ul>
+            <li class="fragment">
+              Pour s’assurer que toutes les parties prenantes se soient bien
+              comprises
+            </li>
+            <li class="fragment">
+              Un ticket dans Jira ou Gitlab n’est pas suffisant
+            </li>
+            <li class="fragment">
+              Qui n’a jamais développé une fonctionnalité sans s’être vu
+              incompris au moment de la présenter aux utilisateurs ? BDD
+              souhaite éviter cela !
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Les 3 amis</h2>
+          <img
+            style="max-height: 30rem"
+            src="./images/3amigos.jpg"
+            alt="los_tres_amigos"
+          />
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
