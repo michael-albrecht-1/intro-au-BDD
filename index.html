@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
-    <link rel="stylesheet" href="dist/theme/moon.css" />
+    <link rel="stylesheet" href="dist/theme/dracula.css" />
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
@@ -20,45 +20,269 @@
   <body>
     <div class="reveal">
       <div class="slides">
+        <!-- Intro -->
         <section>
           <h2>Découverte du BDD</h2>
           <h3>Behavior Driven Development</h3>
+
+          <aside class="notes">
+            <h4>Artisanat logiciel</h4>
+            <p>
+              Regroupement de pratiques et de principes pour créer des solutions
+              de grande qualité par la combinaison d'excellence technique, de
+              collaboration et de formation continue. L’idée n’est pas de se
+              contenter de créer des applications fonctionnelles, mais aussi de
+              les rendre maintenables et faciles à modifier. Parmi ces
+              techniques on retrouve le
+              <em>TDD, DDD, pair programming, code review</em>, etc..
+            </p>
+          </aside>
         </section>
-        <section>
-          <h2>Inventé par qui ?</h2>
-          <p>Par Dan North en 2003 !</p>
+
+        <!-- Par qui ? -->
+        <section data-markdown>
+          <textarea data-template>
+            ## Inventé par qui ?
+            Par Dan North en 2003 !
+          </textarea>
         </section>
-        <section>
-          <h2>Qu'est-ce que c'est ?</h2>
-          <p>
+
+        <!-- Kesako ? -->
+        <section data-markdown>
+          <textarea data-template>
+            ## Qu'est-ce que c'est ?
             C'est une approche de développement qui consiste à exprimer les
             problématiques métiers aux travers d'exemples
-          </p>
+          </textarea>
         </section>
-        <section>
-          <h2>Pourquoi ?</h2>
-          <ul>
-            <li class="fragment">
-              Pour s’assurer que toutes les parties prenantes se soient bien
-              comprises
-            </li>
-            <li class="fragment">
-              Un ticket dans Jira ou Gitlab n’est pas suffisant
-            </li>
-            <li class="fragment">
-              Qui n’a jamais développé une fonctionnalité sans s’être vu
-              incompris au moment de la présenter aux utilisateurs ? BDD
-              souhaite éviter cela !
-            </li>
-          </ul>
+
+        <!-- Pourquoi -->
+        <section data-markdown>
+          <script type="text/template">
+            ## Pourquoi ?
+            - Pour s’assurer que toutes les parties prenantes se soient bien
+            comprises <!-- .element: class="fragment" -->
+            - Un ticket dans Jira ou Gitlab n’est pas suffisant <!-- .element: class="fragment" -->
+            - Pour éviter de se voire incompris au moment de la présenter aux utilisateurs ? <!-- .element: class="fragment" -->
+          </script>
         </section>
+
+        <!-- 3 amigos -->
         <section>
           <h2>Les 3 amis</h2>
           <img
-            style="max-height: 30rem"
+            class="r-stretch"
             src="./images/3amigos.jpg"
-            alt="los_tres_amigos"
+            alt="les trois amis"
           />
+        </section>
+
+        <!-- Le cycle -->
+        <section>
+          <img class="r-stretch" src="./images/cycle.png" alt="cycle du BDD" />
+        </section>
+
+        <!-- Étape découverte -->
+        <section>
+          <h2>Découverte</h2>
+          <ul>
+            <li>on présente ce qui est attendu à l'équipe</li>
+            <li>on échange sur le sujet</li>
+            <li>le but est d’avoir une bonne compréhension partagée</li>
+          </ul>
+        </section>
+
+        <!-- Exemple mapping -->
+        <section>
+          <h2>Exemple mapping</h2>
+          <img
+            class="r-stretch"
+            src="./images/exemple-mapping.png"
+            alt="mapping"
+          />
+        </section>
+
+        <!-- Étape formulation -->
+        <section>
+          <h2>Formulation</h2>
+          <img
+            class="r-stretch"
+            src="./images/ubiquitous.png"
+            alt="ubiquitous language"
+          />
+        </section>
+
+        <!-- Structure d'un Gherkin -->
+        <section>
+          <pre>
+            <strong>Fonctionnalité:</strong> Une description de ce qui est attendu
+              <em>En tant que</em> &lt;type d’utilisateur&gt;,  
+              <em>Je souhaite</em> &lt;fonctionnalité à réaliser&gt;, 
+              <em>Ainsi</em> &lt;bénéfice que cela apportera&gt;. 
+                
+            <strong>Scénario:</strong> Une description du scénario        
+              <em>Étant donné que</em> [un contexte]
+              <em>Et</em> [plus d'informations sur le contexte]
+              <em>Quand</em> [un événement]
+              <em>Et</em> [un autre événement]
+              <em>Alors</em> [résultat attendu]
+              <em>Et</em> [un autre résultat attendu]
+              <em>Mais</em> [un autre résultat attendu]
+          </pre>
+        </section>
+
+        <!-- Exemple de Gherkin -->
+        <section>
+          <pre>
+            <strong>Fonctionnalité:</strong> Valider un bon de livraison 
+              <em>En tant que</em> client,  
+              <em>Je souhaite</em> valider un bon de livraison, 
+              <em>Afin</em> de réceptionner la marchandise reçue dans mon stock. 
+                
+            <strong>Scénario:</strong> BL EDI sans aucune erreur       
+              <em>Étant donné que</em> toutes les lignes ont une référence associée et la bonne quantité reçue ou ne sont pas gérées en stock
+              <em>Et</em> qu’un fournisseur à été renseigné
+              <em>Quand</em> le client valide le BL
+              <em>Alors</em> le BL passe en état “traité”
+              <em>Et</em> les articles sont ajoutés au stock
+              <em>Et</em> le client est redirigé sur la liste des BL
+
+            <strong>Scénario:</strong> BL manuel valide 
+              <em>Étant donné que</em> etc...
+          </pre>
+        </section>
+
+        <!-- Scénarios tabulaires -->
+        <section>
+          <pre style="margin-top: 0.2rem; line-height: 1em">
+            <strong>Scénario:</strong> BL EDI avec des quantités manquantes   
+              <em>Étant donné que</em> le client a saisi
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ligne</th>
+                    <th>Référence</th>
+                    <th>Qté reçue</th>
+                    <th>Qté</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>B</td>
+                    <td>0</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>C</td>
+                    <td>2</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>D</td>
+                    <td>1</td>
+                    <td>2</td>
+                  </tr>
+                </tbody>
+              </table>
+              <em>Et</em> qu’un fournisseur à été renseigné
+              <em>Quand</em> le client valide le BL
+              <em>Alors</em> il choisit s’il souhaite créer un reliquat 
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ligne</th>
+                    <th>Référence</th>
+                    <th>Qté reçue</th>
+                    <th>Qté</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2</td>
+                    <td>B</td>
+                    <td>0</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>D</td>
+                    <td>1</td>
+                    <td>2</td>
+                  </tr>
+                </tbody>
+              </table>
+              <em>Et</em> les articles sont ajoutés au stock
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ligne</th>
+                    <th>Référence</th>
+                    <th>Qté reçue</th>
+                    <th>Qté</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>C</td>
+                    <td>2</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>D</td>
+                    <td>1</td>
+                    <td>2</td>
+                  </tr>
+                </tbody>
+              </table>
+              <em>Et</em> le client est redirigé sur la liste des BL
+          </pre>
+        </section>
+
+        <!-- Étape automatisation-->
+        <section data-markdown>
+          <script type="text/template">
+            ## Automatisation
+            - La doc peut être automatisée (documentation vivante) <!-- .element: class="fragment" -->
+            - On reflète le besoin dans le code  <!-- .element: class="fragment" -->
+            - Garantie que la documentation est à jour <!-- .element: class="fragment" -->
+          </script>
+        </section>
+
+        <!-- cycle complet -->
+        <section>
+          <img
+            class="r-stretch"
+            src="./images/cycle-complet.png"
+            alt="cycle complet d'une US"
+          />
+        </section>
+
+        <!-- Ressources -->
+        <section data-markdown>
+          <script type="text/template">
+            ## Ressources
+            - [Le BDD expliqué par Michaël AZERHAD, c’est court mais c’est bon !](https://www.youtube.com/watch?v=3mSajdqhitQ)<!-- .element: class="fragment" -->
+            - [Article complet sur le blog d’Alex So Yes qui fait le tour du sujet](https://alexsoyes.com/bdd-behavior-driven-development/)   <!-- .element: class="fragment" -->
+            - [Très bon Webinar d’un des co-auteurs du livre “the BDD books discovery” (attention Anglais !!!)](https://www.youtube.com/watch?v=JuWEQsE7Hlo&t=60s)  <!-- .element: class="fragment" -->
+            - [Article du blog de Cucumber expliquant l’Example mapping](https://cucumber.io/blog/bdd/example-mapping-introduction/)  <!-- .element: class="fragment" -->
+          </script>
         </section>
       </div>
     </div>
@@ -73,7 +297,8 @@
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
-
+        slideNumber: "c/t",
+        controlsLayout: "edges",
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
       });
