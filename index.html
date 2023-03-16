@@ -40,31 +40,44 @@
         </section>
 
         <!-- Par qui ? -->
-        <section data-markdown>
-          <textarea data-template>
-            ## Inventé par qui ?
-            Par Dan North en 2003 !
-          </textarea>
+        <section>
+          <h2>Inventé par qui ?</h2>
+          <p class="fragment">Par Dan North en 2003 !</p>
+
+          <aside class="notes">
+            <p>
+              C’est un expert en développement logiciel et en gestion de
+              produits, il est surtout connu pour avoir inventé le BDD en 2003
+              et contribué au développement du la découvrabilité et du
+              continuous delivery.
+            </p>
+          </aside>
         </section>
 
         <!-- Kesako ? -->
-        <section data-markdown>
-          <textarea data-template>
-            ## Qu'est-ce que c'est ?
-            C'est une approche de développement qui consiste à exprimer les
-            problématiques métiers aux travers d'exemples
-          </textarea>
+        <section>
+          <h2>Qu'est-ce que c'est ?</h2>
+          <p class="fragment">
+            Exprimer les problématiques métiers aux travers d'exemples
+          </p>
+
+          <aside class="notes">
+            <p>
+              C'est une approche de développement qui consiste à exprimer des
+              problématiques métiers aux travers d'exemples pour s'assurer que
+              tous les membres de l'équipe ont bien compris le besoin et
+              avancent dans la même direction.
+            </p>
+          </aside>
         </section>
 
         <!-- Pourquoi -->
-        <section data-markdown>
-          <script type="text/template">
-            ## Pourquoi ?
-            - Pour s’assurer que toutes les parties prenantes se soient bien
-            comprises <!-- .element: class="fragment" -->
-            - Un ticket dans Jira ou Gitlab n’est pas suffisant <!-- .element: class="fragment" -->
-            - Pour éviter de se voire incompris au moment de la présenter aux utilisateurs ? <!-- .element: class="fragment" -->
-          </script>
+        <section>
+          <h2>Pourquoi ?</h2>
+          <p class="fragment">
+            Pour s’assurer que toutes les parties prenantes se soient bien
+            comprises
+          </p>
         </section>
 
         <!-- 3 amigos -->
@@ -75,6 +88,16 @@
             src="./images/3amigos.jpg"
             alt="les trois amis"
           />
+
+          <aside class="notes">
+            <p>
+              Le BDD a un intérêt pour tous les acteurs du projet. On appelle
+              les trois amis ceux qui ont les rôles suivants : Métier : Définit
+              le problème ou la fonctionnalité attendue et la valeur ajoutée /
+              Développeur: Suggère une solution / Utilisateur ou testeur :
+              Challenge tout le monde sur le résultat attendu
+            </p>
+          </aside>
         </section>
 
         <!-- Le cycle -->
@@ -90,6 +113,17 @@
             <li>on échange sur le sujet</li>
             <li>le but est d’avoir une bonne compréhension partagée</li>
           </ul>
+
+          <aside class="notes">
+            <p>
+              C’est la phase ou on présente ce qui est attendu aux équipes. Le
+              but est de créer une connaissance commune à travers la
+              collaboration au lieu de se transmettre les besoins à travers des
+              tickets. En méthodologie agile on parle de user story aussi
+              appelées US. Elle permet de définir un comportement souhaité de
+              l’application du point de vue d’un utilisateur.
+            </p>
+          </aside>
         </section>
 
         <!-- Exemple mapping -->
@@ -100,6 +134,14 @@
             src="./images/exemple-mapping.png"
             alt="mapping"
           />
+
+          <aside class="notes">
+            <ul>
+              <li>pas plus d'une semaine avant le dev</li>
+              <li>25-30 minutes pas plus</li>
+              <li>pour débuter c'est bien d'avoir un facilitateur</li>
+            </ul>
+          </aside>
         </section>
 
         <!-- Étape formulation -->
@@ -110,6 +152,14 @@
             src="./images/ubiquitous.png"
             alt="ubiquitous language"
           />
+
+          <aside class="notes">
+            <p>
+              L’objectif va être d’écrire des scénarios de tests dans un langage
+              simple compréhensible de tous. Gherkin une syntaxe pour créer des
+              phrases simples pour valider un besoin.
+            </p>
+          </aside>
         </section>
 
         <!-- Structure d'un Gherkin -->
@@ -129,6 +179,10 @@
               <em>Et</em> [un autre résultat attendu]
               <em>Mais</em> [un autre résultat attendu]
           </pre>
+
+          <aside class="notes">
+            <p>Il faut essayer d’imaginer tous les scénarios différents !</p>
+          </aside>
         </section>
 
         <!-- Exemple de Gherkin -->
@@ -140,7 +194,8 @@
               <em>Afin</em> de réceptionner la marchandise reçue dans mon stock. 
                 
             <strong>Scénario:</strong> BL EDI sans aucune erreur       
-              <em>Étant donné que</em> toutes les lignes ont une référence associée et la bonne quantité reçue ou ne sont pas gérées en stock
+              <em>Étant donné que</em> toutes les lignes ont une ref associée
+              et la bonne quantité reçue ou ne sont pas gérées en stock
               <em>Et</em> qu’un fournisseur à été renseigné
               <em>Quand</em> le client valide le BL
               <em>Alors</em> le BL passe en état “traité”
@@ -253,6 +308,13 @@
               </table>
               <em>Et</em> le client est redirigé sur la liste des BL
           </pre>
+
+          <aside class="notes">
+            <p>
+              Si l’on veut décrire un scénario avec avec plus de données
+              d'exemple, on peut utiliser les scénarios tabulaires.
+            </p>
+          </aside>
         </section>
 
         <!-- Étape automatisation-->
@@ -301,6 +363,7 @@
         controlsLayout: "edges",
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        pdfSeparateFragments: false,
       });
     </script>
   </body>
